@@ -12,10 +12,7 @@ class PVP extends Battle {
   fight(): number {
     let attacker = 1;
 
-    const p1 = this._playerOne.lifePoints;
-    const p2 = this._playerTwo.lifePoints;
-
-    while (p1 !== -1 && p2 !== -1) {
+    while (this.anyPlayerIsAlive()) {
       if (attacker === 1) {
         this._playerOne.attack(this._playerTwo); attacker = 2;
       } else {
@@ -23,6 +20,11 @@ class PVP extends Battle {
       }
     }
     return super.fight();
+  }
+
+  anyPlayerIsAlive(): boolean {
+    return this._playerOne.lifePoints !== -1 
+    && this._playerTwo.lifePoints !== -1;
   }
 }
 
