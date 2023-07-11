@@ -88,6 +88,8 @@ class Character implements Fighter {
   }
 
   attack(enemy: SimpleFighter): void {
+    console.log(this._race.name, 'Is Attacking');
+    
     enemy.receiveDamage(this._strength);
   }
 
